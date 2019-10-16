@@ -21,7 +21,7 @@
           <button (click)="removerMembro($event, membro)" class="btn btn-danger mr-3" title="Remover">
             <i class="fa fa-trash"></i>
           </button>
-          <button class="btn btn-success" (click)="alterarStatusMembro($event, membro)" title="Mudar Status">
+          <button class="btn btn-success text-light" [class.btn-warning]="!membro.inativo" (click)="alterarStatusMembro($event, membro)" title="Mudar Status">
             <i class="fa fa-check-square-o"></i>
           </button>
         </td>
