@@ -1,14 +1,15 @@
 <div class="container mt-5">
-  <div class="card">
+  <div class="card mb-5">
     <div class="card-header bg-dark text-light">
       <h5 *ngIf="!isEdit" class="mt-2"> <i class="fa fa-user-circle-o mr-2"></i> Novo Membro</h5>
-      <h5 *ngIf="isEdit" class="mt-2"> <i class="fa fa-pencil mr-2"></i> Editando a Membro: '{{ membro.nome }}'</h5>
+      <h5 *ngIf="isEdit" class="mt-2"> <i class="fa fa-pencil mr-2"></i> Editando o Membro: '{{ membro.nome }}'</h5>
     </div>
     <div class="card-body">
       <form #formMembro="ngForm">
         <div class="form-group">
+          <legend class="mb-4">Identificação</legend>
           <label class="font-weight-bold">Nome</label>
-          <input type="Text" placeholder="Digite o nome do membro" class="form-control" name="nome"
+          <input type="text" placeholder="Digite o nome do membro" class="form-control" name="nome"
             [(ngModel)]="membro.nome" #nome="ngModel" required minlength="3">
 
           <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="text-danger mt-2">
@@ -21,10 +22,115 @@
           </div>
         </div>
 
+        <div class="form-row">
+          <div class="form-group col-4">
+            <label class="font-weight-bold">Sexo</label>
+            <select class="custom-select">
+              <option selected>Escolha o sexo</option>
+              <option value="Masculino">Masculino</option>
+              <option value="Feminino">Feminino</option>
+            </select>
+          </div>
+
+          <div class="form-group col-4">
+            <label class="font-weight-bold">Data de nascimento</label>
+            <input placeholder="Digite a data de nascimento" type="date" class="form-control" id="dataNas">
+          </div>
+
+          <div class="form-group col-4">
+            <label class="font-weight-bold">Idade</label>
+            <input class="form-control" type="text" readonly>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-4">
+            <label class="font-weight-bold">CPF</label>
+            <input type="text" placeholder="Digite somente números" class="form-control" name="cpf"
+              [(ngModel)]="membro.cpf" #cpf="ngModel" required minlength="11" maxlength="11">
+
+            <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="text-danger mt-2">
+              <div *ngIf="cpf?.errors.required">
+                O CPF é obrigatório
+              </div>
+              <div *ngIf="cpf?.errors.minlength">
+                O CPF precisa ter 11 caracteres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-4">
+            <label class="font-weight-bold">Profissão</label>
+            <input type="text" placeholder="Digite a profissão" class="form-control" name="profissao"
+              [(ngModel)]="membro.profissao" #profissao="ngModel" required minlength="3">
+
+            <div *ngIf="profissao.errors && (profissao.dirty || profissao.touched)" class="text-danger mt-2">
+              <div *ngIf="profissao?.errors.required">
+                A profissão é obrigatória
+              </div>
+              <div *ngIf="cpf?.errors.minlength">
+                A profissão precisa ter caracteres 3 no mínimo
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-4">
+            <label class="font-weight-bold">Email</label>
+            <input type="email" placeholder="Digite o email" id="inputEmail" class="form-control" name="email"
+              [(ngModel)]="membro.email" #email="ngModel" required minlength="3">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartilharemos seu email</small>
+            <div *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger mt-2">
+              <div *ngIf="email?.errors.required">
+                O email é obrigatório
+              </div>
+              <div *ngIf="cpf?.errors.minlength">
+                O email precisa ter caracteres 3 no mínimo
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label class="font-weight-bold">Telefone</label>
+            <input type="text" placeholder="Digite somente números" class="form-control" name="telefone"
+              [(ngModel)]="membro.telefone" #telefone="ngModel" required minlength="8" maxlength="8">
+
+            <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="text-danger mt-2">
+              <div *ngIf="telefone?.errors.required">
+                O telefone é obrigatório
+              </div>
+              <div *ngIf="telefone?.errors.minlength">
+                O telefone precisa ter 8 caracteres
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-6">
+            <label class="font-weight-bold">Celular</label>
+            <input type="text" placeholder="Digite somente números" class="form-control" name="celular"
+              [(ngModel)]="membro.celular" #celular="ngModel" required minlength="9" maxlength="9">
+
+            <div *ngIf="celular.errors && (celular.dirty || celular.touched)" class="text-danger mt-2">
+              <div *ngIf="celular?.errors.required">
+                O celular é obrigatório
+              </div>
+              <div *ngIf="celular?.errors.minlength">
+                O celular precisa ter 9 caracteres
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <legend class="mb-4">Localização</legend>
+        
+        <!-- <div class="custom-file mb-4">
+          <input type="file" class="custom-file-input" id="customFileLang" lang="pt-br">
+          <label class="custom-file-label" for="customFileLang">Adicione uma foto para este membro</label>
+        </div> -->
+
         <button [disabled]="!formMembro.form.valid" [routerLink]="['/membros']" (click)="action()" type="submit"
-          class="btn btn-dark font-weight-bold"><i class="fa fa-floppy-o mr-1"></i>
+          class="btn btn-dark font-weight-bold"><i class="fa fa-floppy-o mr-2"></i>
           Salvar</button>
-        <button [routerLink]="['/membros']" class="btn btn-danger ml-2 font-weight-bold"> <i class="fa fa-ban mr-1"></i>
+        <button [routerLink]="['/membros']" class="btn btn-danger ml-2 font-weight-bold"> <i class="fa fa-ban mr-2"></i>
           Cancelar</button>
       </form>
     </div>

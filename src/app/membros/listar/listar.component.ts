@@ -31,7 +31,7 @@ export class ListarComponent implements OnInit {
       type: 'warning',
       background: '#fff',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#23272B',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim',
       cancelButtonText: 'Cancelar'
@@ -41,6 +41,7 @@ export class ListarComponent implements OnInit {
           title: 'Sucesso!',
           text: 'Membro removido.',
           confirmButtonText: 'Ok',
+          confirmButtonColor: '#23272B',
           type: 'success'
         }
         );
@@ -60,7 +61,7 @@ export class ListarComponent implements OnInit {
       type: 'warning',
       background: '#fff',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
+      confirmButtonColor: '#23272B',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim',
       cancelButtonText: 'Cancelar'
@@ -70,6 +71,7 @@ export class ListarComponent implements OnInit {
           title: 'Sucesso!',
           text: membro.inativo ? 'Membro ativado.' : 'Membro desativado.',
           confirmButtonText: 'Ok',
+          confirmButtonColor: '#23272B',
           type: 'success',
           background: '#fff'
         }
