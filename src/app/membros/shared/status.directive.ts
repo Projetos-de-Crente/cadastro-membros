@@ -2,17 +2,17 @@ import { Directive, OnInit, Input, ElementRef } from '@angular/core';
 
 @Directive({
   // tslint:disable-next-line: directive-selector
-  selector: '[statusAtivo]'
+  selector: '[statusInativo]'
 })
 export class StatusDirective implements OnInit {
 
-  @Input() statusAtivo: boolean;
+  @Input() statusInativo: boolean;
 
   constructor(private el: ElementRef) { }
 
   ngOnInit() {
-    if (this.statusAtivo) {
-      this.el.nativeElement.styleDecoration = 'line-through';
+    if (this.statusInativo) {
+      this.el.nativeElement.style.textDecoration = 'line-through';
     }
   }
 

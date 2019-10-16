@@ -17,6 +17,6 @@ export class Membro {
     public cep?: string,
     public cidade?: string,
     public complemento?: string,
-    public ativo?: boolean
+    public inativo?: boolean
   ) {}
 }

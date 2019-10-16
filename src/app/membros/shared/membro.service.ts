@@ -49,7 +49,7 @@ export class MembroService {
     const membros: Membro[] = this.listarMembros();
     membros.forEach((obj, index, objs) => {
       if (id === obj.id) {
-        objs[index].ativo = !obj.ativo;
+        objs[index].inativo = !obj.inativo;
       }
     });
     // tslint:disable-next-line: no-string-literal
