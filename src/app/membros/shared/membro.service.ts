@@ -24,7 +24,7 @@ export class MembroService {
 
   buscarMembroPorId(id: number): Membro {
     const membros: Membro[] = this.listarMembros();
-    return membros.find(membro => membro.id === id);
+    return membros.find(item => item.id === Number(id));
   }
 
   atualizarMembro(membro: Membro): void {
@@ -35,7 +35,7 @@ export class MembroService {
       }
     });
     // tslint:disable-next-line: no-string-literal
-    localStorage['membro'] = JSON.stringify(membros);
+    localStorage['membros'] = JSON.stringify(membros);
   }
 
   removerMembro(id: number): void {

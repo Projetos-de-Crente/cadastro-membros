@@ -1,35 +1,38 @@
 <div class="card-body">
-    <table class="table table-hover">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col" class="text-center">ID</th>
-                <th scope="col" class="text-center">Nome</th>
-                <th scope="col" class="text-center">Opções</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr [class.bg-warning]="membro.inativo" *ngFor="let membro of membros">
-                <td [statusInativo]="membro.inativo" [class.font-italic]="membro.inativo" class=" text-center">
-                    {{ membro.id }}</td>
-                <td [statusInativo]="membro.inativo" [class.font-italic]="membro.inativo" class="text-center">
-                    {{ membro.nome }}</td>
-                <td class="text-center">
-                    <button [disabled]="membro.inativo" [routerLink]="['/membros/editar', membro.id]" class="btn btn-dark mr-3" title="Editar">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" class="text-center">ID</th>
+        <th scope="col" class="text-center">Nome</th>
+        <th scope="col" class="text-center">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr [class.bg-warning]="membro.inativo" *ngFor="let membro of membros">
+        <td [statusInativo]="membro.inativo" [class.font-italic]="membro.inativo" class=" text-center">
+          {{ membro.id }}</td>
+        <td [statusInativo]="membro.inativo" [class.font-italic]="membro.inativo" class="text-center">
+          {{ membro.nome }}</td>
+        <td class="text-center">
+          <button [disabled]="membro.inativo" [routerLink]="['/membros/editar', membro.id]" class="btn btn-dark mr-3"
+            title="Editar">
             <i class="fa fa-pencil-square-o"></i>
           </button>
-                    <button (click)="removerMembro($event, membro)" class="btn btn-danger mr-3" title="Remover">
+          <button (click)="removerMembro($event, membro)" class="btn btn-danger mr-3" title="Remover">
             <i class="fa fa-trash"></i>
           </button>
-                    <button class="btn btn-success" (click)="alterarStatusMembro($event, membro)" title="Mudar Status">
+          <button class="btn btn-success" (click)="alterarStatusMembro($event, membro)" title="Mudar Status">
             <i class="fa fa-check-square-o"></i>
           </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <button [routerLink]="['/membros/cadastrar']" class="btn btn-dark font-weight-bold"><i class="fa fa-plus mr-2"></i>
+  <button [routerLink]="['/membros/cadastrar']" class="btn btn-dark font-weight-bold"><i
+      class="fa fa-user-plus mr-2"></i>
     Adicionar Membro </button>
 
-    <p *ngIf="membros.length==0" class="mt-5 text-center">Você não possui membros cadastrados <i class="fa fa-frown-o"></i></p>
+  <p *ngIf="membros.length==0" class="mt-5 text-center">Você não possui membros cadastrados <i
+      class="fa fa-frown-o"></i></p>
 </div>

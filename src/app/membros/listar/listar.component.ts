@@ -43,7 +43,7 @@ export class ListarComponent implements OnInit {
           confirmButtonText: 'Ok',
           type: 'success'
         }
-        )
+        );
         this.membroService.removerMembro(membro.id);
         this.membros = this.listarMembros();
       }
@@ -55,19 +55,25 @@ export class ListarComponent implements OnInit {
 
     Swal.fire({
       title: 'Você tem certeza?',
-      text: `Você está marcando o membro '${membro.nome}' como inativo.`,
+      // tslint:disable-next-line: max-line-length
+      text: membro.inativo ? `Você está marcando o membro '${membro.nome}' como ativo.` : `Você está marcando o membro '${membro.nome}' como inativo.`,
       type: 'warning',
+      background: '#fff',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim',
+      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
-        Swal.fire(
-          'Sucesso!',
-          'Este membro foi inativado com sucesso.',
-          'success'
-        )
+        Swal.fire({
+          title: 'Sucesso!',
+          text: membro.inativo ? 'Membro ativado.' : 'Membro desativado.',
+          confirmButtonText: 'Ok',
+          type: 'success',
+          background: '#fff'
+        }
+        );
         this.membroService.alterarStatusMembro(membro.id);
         this.membros = this.listarMembros();
       }

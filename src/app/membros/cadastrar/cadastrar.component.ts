@@ -25,6 +25,7 @@ export class CadastrarComponent implements OnInit {
     this.membro = new Membro();
     // tslint:disable-next-line: no-string-literal
     const id = this.route.snapshot.params['id'];
+
     if (id) {
       this.isEdit = true;
       this.membro = this.membroService.buscarMembroPorId(id);

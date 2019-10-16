@@ -1,8 +1,8 @@
 <div class="container mt-5">
   <div class="card">
     <div class="card-header bg-dark text-light">
-      <h5 *ngIf="!isEdit" class="mt-2"> <i class="fa fa-check-square mr-2"></i> Novo membro</h5>
-      <h5 *ngIf="isEdit" class="mt-2"> <i class="fa fa-pencil mr-2"></i> Editando a membro: '{{ membro.nome }}'</h5>
+      <h5 *ngIf="!isEdit" class="mt-2"> <i class="fa fa-user-circle-o mr-2"></i> Novo Membro</h5>
+      <h5 *ngIf="isEdit" class="mt-2"> <i class="fa fa-pencil mr-2"></i> Editando a Membro: '{{ membro.nome }}'</h5>
     </div>
     <div class="card-body">
       <form #formMembro="ngForm">
@@ -11,7 +11,7 @@
           <input type="Text" placeholder="Digite o nome do membro" class="form-control" name="nome"
             [(ngModel)]="membro.nome" #nome="ngModel" required minlength="3">
 
-          <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="alert alert-danger mt-2">
+          <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="text-danger mt-2">
             <div *ngIf="nome?.errors.required">
               O nome é obrigatório
             </div>
@@ -22,9 +22,9 @@
         </div>
 
         <button [disabled]="!formMembro.form.valid" [routerLink]="['/membros']" (click)="action()" type="submit"
-          class="btn btn-dark font-weight-bold"><i class="fa fa-floppy-o"></i>
+          class="btn btn-dark font-weight-bold"><i class="fa fa-floppy-o mr-1"></i>
           Salvar</button>
-        <button [routerLink]="['/membros']" class="btn btn-danger ml-2 font-weight-bold"> <i class="fa fa-ban"></i>
+        <button [routerLink]="['/membros']" class="btn btn-danger ml-2 font-weight-bold"> <i class="fa fa-ban mr-1"></i>
           Cancelar</button>
       </form>
     </div>
