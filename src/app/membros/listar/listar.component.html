@@ -1,17 +1,24 @@
 <div class="container-fluid">
-  <button [routerLink]="['/membros/cadastrar']" class="btn btn-dark font-weight-bold"><i
-      class="fa fa-user-plus mr-2"></i>
-    Adicionar Membro </button>
-
+  <div class="col-12">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <!-- <button class="btn btn-dark"> <i class="fa fa-search"></i></button> -->
+        <button [routerLink]="['/membros/cadastrar']" class="btn btn-outline-dark font-weight-bold"><i
+            class="fa fa-user-plus mr-2"></i>
+          Adicionar Membro </button>
+      </div>
+      <input type="text" class="form-control" placeholder="Pesquise por qualquer um membro da lista">
+    </div>
+  </div>
   <p *ngIf="membros.length==0" class="mt-5 text-center">Você não possui membros cadastrados <i
       class="fa fa-frown-o"></i></p>
-
-  <div [statusInativo]="membro.inativo" *ngFor="let membro of membros" class="card mt-3 mb-3" style="max-width: 540px;">
+  <div [statusInativo]="membro.inativo" *ngFor="let membro of membros" class="card mt-3 mb-3 container-fluid"
+    style="max-width: 540px;">
     <div class="row no-gutters">
-      <div class="col-md-4">
+      <div class="col-md-4 mt-2">
         <img
           src="https://scontent-gig2-1.xx.fbcdn.net/v/t1.0-9/37161490_1777794148954822_7107695993230983168_n.jpg?_nc_cat=109&_nc_oc=AQn_9lv8yyhtAo02gqvxjhqbv56lSLOV1WW8ZRwB51yxyb6-vR4eovNJvhE0JzqS76s&_nc_ht=scontent-gig2-1.xx&oh=20e436a37e3fda51545941cd3bcafb18&oe=5E29C623"
-          class="card-img ml-2 mt-2">
+          class="card-img">
       </div>
       <div class="col-md-8">
         <div class="card-body">
