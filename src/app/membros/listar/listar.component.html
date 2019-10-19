@@ -1,45 +1,69 @@
 <div class="container-fluid">
-  <div class="col-12">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <!-- <button class="btn btn-dark"> <i class="fa fa-search"></i></button> -->
-        <button [routerLink]="['/membros/cadastrar']" class="btn btn-outline-dark font-weight-bold"><i
-            class="fa fa-user-plus mr-2"></i>
-          Adicionar Membro </button>
-      </div>
-      <input type="text" class="form-control" placeholder="Pesquise por qualquer um membro da lista">
+    <div class="col-12">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-dark"><i class="fa fa-search"></i></button>
+            </div>
+            <input type="text" class="form-control" placeholder="Pesquise pelo CPF, nome ou data de aniversário" />
+        </div>
+        <button [routerLink]="['/membros/cadastrar']" class="btn btn-outline-dark font-weight-bold">
+      <i class="fa fa-user-plus mr-2"></i> Adicionar Membro
+    </button>
     </div>
-  </div>
-  <p *ngIf="membros.length==0" class="mt-5 text-center">Você não possui membros cadastrados <i
-      class="fa fa-frown-o"></i></p>
-  <div [statusInativo]="membro.inativo" *ngFor="let membro of membros" class="card mt-3 mb-3 container-fluid"
-    style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4 mt-2">
-        <img
-          src="https://scontent-gig2-1.xx.fbcdn.net/v/t1.0-9/37161490_1777794148954822_7107695993230983168_n.jpg?_nc_cat=109&_nc_oc=AQn_9lv8yyhtAo02gqvxjhqbv56lSLOV1WW8ZRwB51yxyb6-vR4eovNJvhE0JzqS76s&_nc_ht=scontent-gig2-1.xx&oh=20e436a37e3fda51545941cd3bcafb18&oe=5E29C623"
-          class="card-img">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 [class.font-italic]="membro.inativo" class="card-title">{{ membro.nome }}
-          </h5>
-          <p [class.font-italic]="membro.inativo" class="card-text">{{ membro.id }}</p>
-          <p [class.font-italic]="membro.inativo" class="card-text"><small class="text-muted">Clique aqui para ver mais
-              informações do membro</small></p>
-          <td>
-            <button [disabled]="membro.inativo" [routerLink]="['/membros/editar', membro.id]"
-              class="btn btn-secondary mr-3" title="Editar">
+    <p *ngIf="membros.length == 0" class="mt-5 text-center">
+        Você não possui membros cadastrados <i class="fa fa-frown-o"></i>
+    </p>
+    <div [statusInativo]="membro.inativo" *ngFor="let membro of membros" class="card mt-3 mb-3 container-fluid" style="max-width: 540px;">
+        <div class="row no-gutters">
+            <div class="col-md-4 mt-2">
+                <img src="https://scontent-gig2-1.xx.fbcdn.net/v/t1.0-9/37161490_1777794148954822_7107695993230983168_n.jpg?_nc_cat=109&_nc_oc=AQn_9lv8yyhtAo02gqvxjhqbv56lSLOV1WW8ZRwB51yxyb6-vR4eovNJvhE0JzqS76s&_nc_ht=scontent-gig2-1.xx&oh=20e436a37e3fda51545941cd3bcafb18&oe=5E29C623"
+                    class="card-img" />
+            </div>
+            <div class="col-md-8">
+                <div class="card-body mb-2">
+                    <h5 [class.font-italic]="membro.inativo" class="card-title">
+                        {{ membro.nome }}
+                    </h5>
+                    <!-- <p [class.font-italic]="membro.inativo" class="card-text">
+                        {{ membro.id }}
+                    </p> -->
+                    <p [class.font-italic]="membro.inativo" class="card-text">
+                        <small class="text-muted">Clique nos botões abaixo para editar, excluir, alterar o status e
+              ver mais informações do membro.</small
+            >
+          </p>
+          <div>
+            <button
+              [disabled]="membro.inativo"
+              [routerLink]="['/membros/editar', membro.id]"
+              class="btn btn-dark mr-3"
+              title="Editar"
+            >
               <i class="fa fa-pencil-square-o"></i>
             </button>
-            <button (click)="removerMembro($event, membro)" class="btn btn-danger mr-3" title="Remover">
+            <button
+              (click)="removerMembro($event, membro)"
+              class="btn btn-danger mr-3"
+              title="Remover"
+            >
               <i class="fa fa-trash"></i>
             </button>
-            <button class="btn btn-warning text-light" [class.btn-dark]="membro.inativo"
-              (click)="alterarStatusMembro($event, membro)" title="Mudar Status">
+            <button
+              class="btn btn-success text-light mr-3"
+              [class.btn-warning]="!membro.inativo"
+              (click)="alterarStatusMembro($event, membro)"
+              title="Mudar Status"
+            >
               <i class="fa fa-check-square-o"></i>
             </button>
-          </td>
+            <button
+              [disabled]="membro.inativo"
+              class="btn btn-primary mr-3"
+              title="Exibir mais"
+            >
+              <i class="fa fa-chevron-down"></i>
+            </button>
+          </div>
         </div>
       </div>
     </div>
