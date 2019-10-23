@@ -1,0 +1,7 @@
+.centro {
+  height: calc(100vh - 210px);
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

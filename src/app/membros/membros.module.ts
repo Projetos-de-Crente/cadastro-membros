@@ -6,8 +6,9 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MembroService } from './shared/membro.service';
 import { StatusDirective } from './shared/status.directive';
+import { HomeComponent } from './home/home.component';
 @NgModule({
-  declarations: [CadastrarComponent, ListarComponent, StatusDirective],
+  declarations: [CadastrarComponent, ListarComponent, StatusDirective, HomeComponent],
   imports: [
     CommonModule,
     RouterModule,
