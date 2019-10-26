@@ -1,18 +1,33 @@
 <div class="container mt-5">
   <div class="card mb-5">
     <div class="card-header bg-dark text-light">
-      <h5 *ngIf="!isEdit" class="mt-2"> <i class="fa fa-user-circle-o mr-2"></i> Novo Membro</h5>
-      <h5 *ngIf="isEdit" class="mt-2"> <i class="fa fa-pencil mr-2"></i> Editando o Membro: '{{ membro.nome }}'</h5>
+      <h5 *ngIf="!isEdit" class="mt-2">
+        <i class="fa fa-user-circle-o mr-2"></i> Novo Membro
+      </h5>
+      <h5 *ngIf="isEdit" class="mt-2">
+        <i class="fa fa-pencil mr-2"></i> Editando o Membro: '{{ membro.nome }}'
+      </h5>
     </div>
     <div class="card-body">
       <form #formMembro="ngForm">
         <div class="form-group">
           <!-- <legend class="mb-4">Identificação</legend> -->
           <label class="font-weight-bold">Nome</label>
-          <input type="text" placeholder="Digite o nome do membro" class="form-control" name="nome"
-            [(ngModel)]="membro.nome" #nome="ngModel" required minlength="3">
+          <input
+            type="text"
+            placeholder="Digite o nome do membro"
+            class="form-control"
+            name="nome"
+            [(ngModel)]="membro.nome"
+            #nome="ngModel"
+            required
+            minlength="3"
+          />
 
-          <div *ngIf="nome.errors && (nome.dirty || nome.touched)" class="text-danger mt-2">
+          <div
+            *ngIf="nome.errors && (nome.dirty || nome.touched)"
+            class="text-danger mt-2"
+          >
             <div *ngIf="nome?.errors.required">
               O nome é obrigatório
             </div>
@@ -25,31 +40,78 @@
         <div class="form-row">
           <div class="form-group col-4">
             <label class="font-weight-bold">Sexo</label>
-            <select class="custom-select">
+            <select class="custom-select" required>
               <option selected>Escolha o sexo</option>
               <option value="Masculino">Masculino</option>
               <option value="Feminino">Feminino</option>
             </select>
+            <!-- <div *ngIf="sexo.errors && sexo.touched" class="text-danger mt-2">
+              <div
+                *ngIf="
+                  sexo?.errors.required &&
+                  (sexo !== 'Masculino' || sexo !== 'Feminino')
+                "
+              >
+                O sexo é obrigatório
+              </div>
+            </div> -->
           </div>
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Data de nascimento</label>
-            <input type="date" class="form-control">
+            <input
+              type="date"
+              class="form-control"
+              name="dataNascimento"
+              [(ngModel)]="membro.dataNascimento"
+              #dataNascimento="ngModel"
+              required
+            />
+            <div
+              *ngIf="
+                dataNascimento.errors &&
+                (dataNascimento.dirty || dataNascimento.touched)
+              "
+              class="text-danger mt-2"
+            >
+              <div *ngIf="dataNascimento?.errors.required">
+                A data de nascimento é obrigatória
+              </div>
+            </div>
           </div>
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Idade</label>
-            <input class="form-control" type="text" placeholder="Campo calculado" readonly>
+            <input
+              class="form-control"
+              type="text"
+              name="idade"
+              [(ngModel)]="membro.idade"
+              #idade="ngModel"
+              readonly
+            />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-4">
             <label class="font-weight-bold">CPF</label>
-            <input type="text" placeholder="Digite somente números" class="form-control" name="cpf"
-              [(ngModel)]="membro.cpf" #cpf="ngModel" required minlength="11" maxlength="11">
+            <input
+              type="text"
+              placeholder="Digite somente números"
+              class="form-control"
+              name="cpf"
+              [(ngModel)]="membro.cpf"
+              #cpf="ngModel"
+              required
+              minlength="11"
+              maxlength="11"
+            />
 
-            <div *ngIf="cpf.errors && (cpf.dirty || cpf.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="cpf.errors && (cpf.dirty || cpf.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="cpf?.errors.required">
                 O CPF é obrigatório
               </div>
@@ -61,10 +123,20 @@
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Profissão</label>
-            <input type="text" placeholder="Digite a profissão" class="form-control" name="profissao"
-              [(ngModel)]="membro.profissao" #profissao="ngModel" minlength="3">
+            <input
+              type="text"
+              placeholder="Digite a profissão"
+              class="form-control"
+              name="profissao"
+              [(ngModel)]="membro.profissao"
+              #profissao="ngModel"
+              minlength="3"
+            />
 
-            <div *ngIf="profissao.errors && (profissao.dirty || profissao.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="profissao.errors && (profissao.dirty || profissao.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="profissao?.errors.minlength">
                 A profissão precisa ter 3 caracteres no mínimo
               </div>
@@ -73,9 +145,19 @@
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Email</label>
-            <input type="email" placeholder="Digite o email" class="form-control" name="email"
-              [(ngModel)]="membro.email" #email="ngModel" minlength="3">
-            <div *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger mt-2">
+            <input
+              type="email"
+              placeholder="Digite o email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="membro.email"
+              #email="ngModel"
+              minlength="3"
+            />
+            <div
+              *ngIf="email.errors && (email.dirty || email.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="email?.errors.minlength">
                 O email precisa ter 3 caracteres no mínimo
               </div>
@@ -86,10 +168,22 @@
         <div class="form-row">
           <div class="form-group col-4">
             <label class="font-weight-bold">Telefone</label>
-            <input type="text" placeholder="Digite somente números" class="form-control" name="telefone"
-              [(ngModel)]="membro.telefone" #telefone="ngModel" required minlength="10" maxlength="10">
+            <input
+              type="text"
+              placeholder="Digite somente números"
+              class="form-control"
+              name="telefone"
+              [(ngModel)]="membro.telefone"
+              #telefone="ngModel"
+              required
+              minlength="10"
+              maxlength="10"
+            />
 
-            <div *ngIf="telefone.errors && (telefone.dirty || telefone.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="telefone.errors && (telefone.dirty || telefone.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="telefone?.errors.required">
                 O telefone é obrigatório
               </div>
@@ -101,10 +195,22 @@
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Celular</label>
-            <input type="text" placeholder="Digite somente números" class="form-control" name="celular"
-              [(ngModel)]="membro.celular" #celular="ngModel" required minlength="11" maxlength="11">
+            <input
+              type="text"
+              placeholder="Digite somente números"
+              class="form-control"
+              name="celular"
+              [(ngModel)]="membro.celular"
+              #celular="ngModel"
+              required
+              minlength="11"
+              maxlength="11"
+            />
 
-            <div *ngIf="celular.errors && (celular.dirty || celular.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="celular.errors && (celular.dirty || celular.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="celular?.errors.required">
                 O celular é obrigatório
               </div>
@@ -120,7 +226,14 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
               </div>
-              <input type="text" class="form-control" placeholder="Digite um usuário">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Digite um usuário"
+                name="redeSocial"
+                [(ngModel)]="membro.redeSocial"
+                #redeSocial="ngModel"
+              />
             </div>
           </div>
         </div>
@@ -129,10 +242,23 @@
         <div class="form-row">
           <div class="form-group col-8">
             <label class="font-weight-bold">Logradouro</label>
-            <input type="text" placeholder="Digite o logradouro" class="form-control" name="logradouro"
-              [(ngModel)]="membro.logradouro" #logradouro="ngModel" required minlength="3">
+            <input
+              type="text"
+              placeholder="Digite o logradouro"
+              class="form-control"
+              name="logradouro"
+              [(ngModel)]="membro.logradouro"
+              #logradouro="ngModel"
+              required
+              minlength="3"
+            />
 
-            <div *ngIf="logradouro.errors && (logradouro.dirty || logradouro.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="
+                logradouro.errors && (logradouro.dirty || logradouro.touched)
+              "
+              class="text-danger mt-2"
+            >
               <div *ngIf="logradouro?.errors.required">
                 O logradouro é obrigatório
               </div>
@@ -143,18 +269,34 @@
           </div>
           <div class="form-group col-4">
             <label class="font-weight-bold">Número</label>
-            <input type="text" placeholder="Digite o número" class="form-control" name="numero"
-              [(ngModel)]="membro.numero" #numero="ngModel">
+            <input
+              type="text"
+              placeholder="Digite o número"
+              class="form-control"
+              name="numero"
+              [(ngModel)]="membro.numero"
+              #numero="ngModel"
+            />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-4">
             <label class="font-weight-bold">Bairro</label>
-            <input type="text" placeholder="Digite o bairro" class="form-control" name="bairro"
-              [(ngModel)]="membro.bairro" #bairro="ngModel" required>
+            <input
+              type="text"
+              placeholder="Digite o bairro"
+              class="form-control"
+              name="bairro"
+              [(ngModel)]="membro.bairro"
+              #bairro="ngModel"
+              required
+            />
 
-            <div *ngIf="bairro.errors && (bairro.dirty || bairro.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="bairro.errors && (bairro.dirty || bairro.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="bairro?.errors.required">
                 O bairro é obrigatório
               </div>
@@ -163,10 +305,20 @@
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Estado</label>
-            <input type="text" placeholder="Digite o estado" class="form-control" name="estado"
-              [(ngModel)]="membro.estado" #estado="ngModel" required>
+            <input
+              type="text"
+              placeholder="Digite o estado"
+              class="form-control"
+              name="estado"
+              [(ngModel)]="membro.estado"
+              #estado="ngModel"
+              required
+            />
 
-            <div *ngIf="estado.errors && (estado.dirty || estado.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="estado.errors && (estado.dirty || estado.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="estado?.errors.required">
                 O estado é obrigatório
               </div>
@@ -175,9 +327,21 @@
 
           <div class="form-group col-4">
             <label class="font-weight-bold">CEP</label>
-            <input type="text" placeholder="Digite somente números" class="form-control" name="cep"
-              [(ngModel)]="membro.cep" #cep="ngModel" required minlength="8" maxlength="8">
-            <div *ngIf="cep.errors && (cep.dirty || cep.touched)" class="text-danger mt-2">
+            <input
+              type="text"
+              placeholder="Digite somente números"
+              class="form-control"
+              name="cep"
+              [(ngModel)]="membro.cep"
+              #cep="ngModel"
+              required
+              minlength="8"
+              maxlength="8"
+            />
+            <div
+              *ngIf="cep.errors && (cep.dirty || cep.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="cep?.errors.required">
                 O CEP é obrigatório
               </div>
@@ -191,10 +355,20 @@
         <div class="form-row">
           <div class="form-group col-4">
             <label class="font-weight-bold">Cidade</label>
-            <input type="text" placeholder="Digite a cidade" class="form-control" name="cidade"
-              [(ngModel)]="membro.cidade" #cidade="ngModel" required>
+            <input
+              type="text"
+              placeholder="Digite a cidade"
+              class="form-control"
+              name="cidade"
+              [(ngModel)]="membro.cidade"
+              #cidade="ngModel"
+              required
+            />
 
-            <div *ngIf="cidade.errors && (cidade.dirty || cidade.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="cidade.errors && (cidade.dirty || cidade.touched)"
+              class="text-danger mt-2"
+            >
               <div *ngIf="cidade?.errors.required">
                 A cidade é obrigatória
               </div>
@@ -203,10 +377,22 @@
 
           <div class="form-group col-4">
             <label class="font-weight-bold">Complemento</label>
-            <input type="text" placeholder="Digite o complemento" class="form-control" name="complemento"
-              [(ngModel)]="membro.complemento" #complemento="ngModel" required>
+            <input
+              type="text"
+              placeholder="Digite o complemento"
+              class="form-control"
+              name="complemento"
+              [(ngModel)]="membro.complemento"
+              #complemento="ngModel"
+              required
+            />
 
-            <div *ngIf="complemento.errors && (complemento.dirty || complemento.touched)" class="text-danger mt-2">
+            <div
+              *ngIf="
+                complemento.errors && (complemento.dirty || complemento.touched)
+              "
+              class="text-danger mt-2"
+            >
               <div *ngIf="complemento?.errors.required">
                 O complemento é obrigatório
               </div>
@@ -218,20 +404,37 @@
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
-                  <input type="checkbox" id="checkboxStaus">
+                  <input type="checkbox" id="checkboxStaus" />
                 </div>
               </div>
-              <input type="text" class="form-control" value="O membro está inativo?" readonly>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="O membro está inativo?"
+                readonly
+              />
             </div>
-            <small class="form-text text-muted">Marque esta opção caso o membro esteja inativo.</small>
+            <small class="form-text text-muted"
+              >Marque esta opção caso o membro esteja inativo.</small
+            >
           </div>
         </div>
 
-        <button [disabled]="!formMembro.form.valid" [routerLink]="['/membros']" (click)="action()" type="submit"
-          class="btn btn-dark font-weight-bold"><i class="fa fa-floppy-o mr-2"></i>
-          Salvar</button>
-        <button [routerLink]="['/membros']" class="btn btn-danger ml-2 font-weight-bold"> <i class="fa fa-ban mr-2"></i>
-          Cancelar</button>
+        <button
+          [disabled]="!formMembro.form.valid"
+          [routerLink]="['/membros']"
+          (click)="action()"
+          type="submit"
+          class="btn btn-dark font-weight-bold"
+        >
+          <i class="fa fa-floppy-o mr-2"></i> Salvar
+        </button>
+        <button
+          [routerLink]="['/membros']"
+          class="btn btn-danger ml-2 font-weight-bold"
+        >
+          <i class="fa fa-ban mr-2"></i> Cancelar
+        </button>
       </form>
     </div>
   </div>

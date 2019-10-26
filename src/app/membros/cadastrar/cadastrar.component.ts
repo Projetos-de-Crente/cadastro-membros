@@ -50,4 +50,8 @@ export class CadastrarComponent implements OnInit {
     }
   }
 
+  calcularIdade(): number {
+    return 18;
+  }
+
 }
