@@ -27,7 +27,7 @@ export class ListarComponent implements OnInit {
 
     Swal.fire({
       title: 'Você tem certeza?',
-      text: `Você está removendo a membro '${membro.nome}'.`,
+      text: `Você está removendo o membro '${membro.nome}'.`,
       type: 'warning',
       background: '#fff',
       showCancelButton: true,
@@ -81,5 +81,6 @@ export class ListarComponent implements OnInit {
       }
     });
   }
-
 }
+
+
