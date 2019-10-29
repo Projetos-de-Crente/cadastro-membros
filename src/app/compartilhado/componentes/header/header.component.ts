@@ -8,7 +8,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  public data = this.route.snapshot.data.menu;
+  public data = this.route.snapshot.data.header;
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 

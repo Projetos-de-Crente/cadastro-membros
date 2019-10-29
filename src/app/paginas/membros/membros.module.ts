@@ -4,15 +4,18 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { ListarComponent } from './listar/listar.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MembroService } from '../../compartilhado/membro.service';
-import { StatusDirective } from '../../compartilhado/status.directive';
+import { MembroService } from 'src/app/compartilhado/membro.service';
 import { HomeComponent } from '../home/home.component';
+import { ComponentesModule } from 'src/app/compartilhado/componentes/componentes.module';
+import { CompartilhadoModule } from 'src/app/compartilhado/compartilhado.module';
 @NgModule({
-  declarations: [CadastrarComponent, ListarComponent, StatusDirective, HomeComponent],
+  declarations: [CadastrarComponent, ListarComponent, HomeComponent],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ComponentesModule,
+    CompartilhadoModule
   ],
   providers: [
     MembroService

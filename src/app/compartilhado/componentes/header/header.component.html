@@ -1,5 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
-  <a [routerLink]="['/membros']" class="text-light">
-    <h5 class="p-3"><i class="fa fa-users mr-3"></i>{{ title }}</h5>
+  <a (click)="goTo()" class="text-light">
+    <i *ngIf="data.volta" class="fa fa-angle-left"></i>
+    <h5 class="p-3"><i class="fa fa-{{ data.icone }} mr-3"></i>{{ data.titulo }}</h5>
   </a>
 </nav>

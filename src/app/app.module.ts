@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MembrosModule } from './paginas/membros/membros.module';
+import { CompartilhadoModule } from './compartilhado/compartilhado.module';
+import { ComponentesModule } from './compartilhado/componentes/componentes.module';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,12 @@ import { MembrosModule } from './paginas/membros/membros.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MembrosModule
+    MembrosModule,
+    ComponentesModule,
+    CompartilhadoModule
   ],
   providers: [],
+  exports: [CompartilhadoModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
