@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { ListarComponent } from './listar/listar.component';
 import { CadastrarComponent } from './cadastrar/cadastrar.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from '../paginas/home/home.component';
 
 export const MembroRoutes: Routes = [
 

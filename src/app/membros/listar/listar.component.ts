@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Membro } from '../shared/membro.model';
-import { MembroService } from '../shared/membro.service';
+import { Membro } from '../../shared/membro.model';
+import { MembroService } from '../../shared/membro.service';
 import Swal from 'sweetalert2';
 
 @Component({
