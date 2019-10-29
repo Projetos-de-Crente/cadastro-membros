@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-import { MembroService } from 'src/app/compartilhado/membro.service';
-import { Membro } from 'src/app/compartilhado/membro.model';
+import { MembroService } from 'src/app/compartilhado/servicos/membro.service';
+import { Membro } from 'src/app/compartilhado/modelos/membro.model';
 
 @Component({
   selector: 'app-listar',

@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Membro } from 'src/app/compartilhado/membro.model';
-import { MembroService } from 'src/app/compartilhado/membro.service';
+import { Membro } from 'src/app/compartilhado/modelos/membro.model';
+import { MembroService } from 'src/app/compartilhado/servicos/membro.service';
 
 @Component({
   selector: 'app-cadastrar',

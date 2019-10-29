@@ -1,4 +1,4 @@
-export const header = {
+export const HEADER = {
     home: {
         titulo: 'Cadastro de Membros',
         icone: 'users',
@@ -13,7 +13,7 @@ export const header = {
     },
     formulario: {
         titulo: 'Lista de Membros ',
-        icone: 'users',
+        icone: 'id-card-o',
         url: ['membros'],
         volta: true
     }

@@ -6,7 +6,7 @@ import { MembroRoutes } from './paginas/membros/membros-routing.module';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   ...MembroRoutes

@@ -4,7 +4,7 @@ import { CadastrarComponent } from './cadastrar/cadastrar.component';
 import { ListarComponent } from './listar/listar.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MembroService } from 'src/app/compartilhado/membro.service';
+import { MembroService } from 'src/app/compartilhado/servicos/membro.service';
 import { HomeComponent } from '../home/home.component';
 import { ComponentesModule } from 'src/app/compartilhado/componentes/componentes.module';
 import { CompartilhadoModule } from 'src/app/compartilhado/compartilhado.module';
