@@ -2,8 +2,15 @@
   background-color: #cecece;
 }
 
+.page {
+  height: 100vh;
+}
+
+.conteudo {
+  height: calc(100vh - 192px);
+}
+
 .centro {
-  height: calc(100vh - 210px);
   align-items: center;
   display: flex;
   flex-wrap: wrap;

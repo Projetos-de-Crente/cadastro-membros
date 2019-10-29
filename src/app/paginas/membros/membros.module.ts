@@ -8,6 +8,7 @@ import { MembroService } from 'src/app/compartilhado/servicos/membro.service';
 import { HomeComponent } from '../home/home.component';
 import { ComponentesModule } from 'src/app/compartilhado/componentes/componentes.module';
 import { CompartilhadoModule } from 'src/app/compartilhado/compartilhado.module';
+import { ParticlesModule } from 'angular-particle';
 @NgModule({
   declarations: [CadastrarComponent, ListarComponent, HomeComponent],
   imports: [
@@ -15,7 +16,8 @@ import { CompartilhadoModule } from 'src/app/compartilhado/compartilhado.module'
     RouterModule,
     FormsModule,
     ComponentesModule,
-    CompartilhadoModule
+    CompartilhadoModule,
+    ParticlesModule
   ],
   providers: [
     MembroService
