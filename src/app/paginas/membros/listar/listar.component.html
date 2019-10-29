@@ -9,9 +9,6 @@
       </div>
       <input type="text" class="form-control" placeholder="Pesquise pelo CPF, nome ou data de aniversário" />
     </div>
-    <!-- <button [routerLink]="['/home']" class="btn btn-dark mr-3" title="Voltar para home">
-      <i class="fa fa-home"></i>
-    </button> -->
     <button [routerLink]="['/membros/cadastrar']" class="btn btn-outline-dark font-weight-bold">
       <i class="fa fa-user-plus mr-2"></i> Adicionar Membro
     </button>
@@ -32,9 +29,6 @@
           <h5 [class.font-italic]="membro.inativo" class="card-title">
             {{ membro.nome }}
           </h5>
-          <!-- <p [class.font-italic]="membro.inativo" class="card-text">
-                        {{ membro.id }}
-                    </p> -->
           <p [class.font-italic]="membro.inativo" class="card-text">
             <small class="text-muted">Clique nos botões abaixo para editar, excluir, alterar o status e
               ver mais informações do membro.</small>
