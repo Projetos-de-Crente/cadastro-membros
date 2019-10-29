@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { MembrosModule } from './paginas/membros/membros.module';
 import { CompartilhadoModule } from './compartilhado/compartilhado.module';
 import { ComponentesModule } from './compartilhado/componentes/componentes.module';
-import { ParticlesModule } from 'angular-particle';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { ParticlesModule } from 'angular-particle';
     AppRoutingModule,
     MembrosModule,
     ComponentesModule,
-    CompartilhadoModule,
-    ParticlesModule
+    CompartilhadoModule
   ],
   providers: [],
   exports: [CompartilhadoModule],

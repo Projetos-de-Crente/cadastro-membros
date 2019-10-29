@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-declare var particlesJS: any;
+import { TEMA, PARAMS } from 'src/assets/particles.const';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +7,12 @@ declare var particlesJS: any;
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public tema = TEMA;
+  public params = PARAMS;
 
   constructor() { }
 
   ngOnInit() {
-    particlesJS.load('particles-js', 'assets/particles.json');
   }
 }
 
