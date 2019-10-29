@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Membro } from '../../shared/membro.model';
-import { MembroService } from '../../shared/membro.service';
+import { Membro } from '../../../compartilhado/membro.model';
+import { MembroService } from '../../../compartilhado/membro.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { MembroRoutes } from './membros/membros-routing.module';
+import { MembroRoutes } from './paginas/membros/membros-routing.module';
 
 
 const routes: Routes = [
