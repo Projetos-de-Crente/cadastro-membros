@@ -78,7 +78,7 @@ export const PARAMS = {
         events: {
           onhover: {
             enable: false,
-            mode: 'grab'
+            mode: 'repulse'
           },
           onclick: {
             enable: true,
@@ -101,7 +101,7 @@ export const PARAMS = {
             speed: 3
           },
           repulse: {
-            distance: 200,
+            distance: 100,
             duration: 0.4
           },
           push: {

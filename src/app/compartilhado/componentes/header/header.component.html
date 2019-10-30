@@ -1,6 +1,9 @@
 <nav class="navbar navbar-dark bg-dark">
   <a [class.click]="data.volta" (click)="goTo()" class="text-light">
-    <h5 class="p-3"><i *ngIf="data.volta" class="fa fa-angle-left mr-3"></i>{{ data.titulo }}
-      <i class="fa fa-{{ data.icone }} ml-2"></i></h5>
+    <div class="row">
+      <!-- <img *ngIf="!data.volta" src="./../../../../assets/icnv-logo.png" width="20%" height="20%" class="ml-3"> -->
+      <h5 class="p-3"><i *ngIf="data.volta" class="fa fa-angle-left mr-3"></i>{{ data.titulo }}
+        <i class="fa fa-{{ data.icone }} ml-2"></i></h5>
+    </div>
   </a>
 </nav>

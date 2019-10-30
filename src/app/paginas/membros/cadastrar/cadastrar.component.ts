@@ -12,6 +12,7 @@ import { MembroService } from 'src/app/compartilhado/servicos/membro.service';
 export class CadastrarComponent implements OnInit {
   @ViewChild('formMembro', { static: true }) formMembro: NgForm;
   membro: Membro;
+
   public isEdit = false;
 
   constructor(
