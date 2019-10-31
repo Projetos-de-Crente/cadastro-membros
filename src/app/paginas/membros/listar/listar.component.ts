@@ -34,7 +34,7 @@ export class ListarComponent implements OnInit {
       confirmButtonColor: '#23272B',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Não'
     }).then((result) => {
       if (result.value) {
         Swal.fire({
@@ -64,7 +64,7 @@ export class ListarComponent implements OnInit {
       confirmButtonColor: '#23272B',
       cancelButtonColor: '#d33',
       confirmButtonText: 'Sim',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Não'
     }).then((result) => {
       if (result.value) {
         Swal.fire({

@@ -247,7 +247,7 @@
           class="btn btn-dark font-weight-bold">
           <i class="fa fa-floppy-o mr-2"></i> Salvar
         </button>
-        <button [routerLink]="['/membros']" class="btn btn-danger ml-2 font-weight-bold">
+        <button (click)="cancelarForm()" class="btn btn-danger ml-2 font-weight-bold">
           <i class="fa fa-ban mr-2"></i> Cancelar
         </button>
       </form>

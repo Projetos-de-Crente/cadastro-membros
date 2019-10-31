@@ -12,7 +12,7 @@ export const HEADER = {
         volta: true
     },
     formulario: {
-        titulo: 'Lista de Membros ',
+        titulo: 'Lista de Membros',
         icone: 'id-card-o',
         url: ['membros'],
         volta: true

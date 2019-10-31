@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Membro } from 'src/app/compartilhado/modelos/membro.model';
 import { MembroService } from 'src/app/compartilhado/servicos/membro.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cadastrar',
@@ -51,8 +52,22 @@ export class CadastrarComponent implements OnInit {
     }
   }
 
-  calcularIdade(): number {
-    return 18;
-  }
+  cancelarForm(): void {
+    Swal.fire({
+      title: 'Você tem certeza que deseja sair?',
+      text: 'Todos os dados serão perdidos.',
+      type: 'warning',
+      background: '#fff',
+      showCancelButton: true,
+      confirmButtonColor: '#23272B',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim',
+      cancelButtonText: 'Não'
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/membros']);
+      }
+    });
 
+  }
 }
