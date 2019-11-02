@@ -21,7 +21,7 @@ export class HeaderComponent {
 
   public cancelarForm(): void {
     Swal.fire({
-      title: 'Você tem certeza que deseja sair?',
+      title: 'Você tem certeza que deseja voltar?',
       text: 'Todos os dados serão perdidos.',
       type: 'warning',
       background: '#fff',
