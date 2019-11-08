@@ -87,10 +87,13 @@
           <div class="form-group col-4">
             <label class="font-weight-bold">Email</label>
             <input type="email" placeholder="Digite o email" class="form-control" name="email"
-              [(ngModel)]="membro.email" #email="ngModel" minlength="3" />
+              [(ngModel)]="membro.email" #email="ngModel" minlength="3" email />
             <div *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger mt-2">
               <div *ngIf="email?.errors.minlength">
                 O email precisa ter 3 caracteres no mínimo
+              </div>
+              <div *ngIf="email?.errors.email">
+                O email precisa ser válido
               </div>
             </div>
           </div>
