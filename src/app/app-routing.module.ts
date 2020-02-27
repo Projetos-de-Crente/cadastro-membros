@@ -1,18 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { MembroRoutes } from './paginas/membros/membros-routing.module';
-import { HomeComponent } from './paginas/home/home.component';
-import { HEADER } from './compartilhado/componentes/header/header';
-
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { MembroRoutes } from "./paginas/membros/membros-routing.module";
+import { HomeComponent } from "./paginas/home/home.component";
+import { HEADER } from "./compartilhado/componentes/header/header";
 
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: "",
+    redirectTo: "home",
+    pathMatch: "full"
   },
   {
-    path: 'home',
+    path: "home",
     component: HomeComponent,
     data: { header: HEADER.home }
   },
@@ -23,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

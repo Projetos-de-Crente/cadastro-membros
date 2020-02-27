@@ -1,15 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Membro } from '../modelos/membro.model';
+import { Injectable } from "@angular/core";
+import { Membro } from "../modelos/membro.model";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class MembroService {
-
-  constructor() { }
+  constructor() {}
   listarMembros(): Membro[] {
     // tslint:disable-next-line: no-string-literal
-    const membros = localStorage['membros'];
+    const membros = localStorage["membros"];
     return membros ? JSON.parse(membros) : [];
   }
 
@@ -19,7 +18,7 @@ export class MembroService {
     membro.id = new Date().getTime();
     membros.push(membro);
     // tslint:disable-next-line: no-string-literal
-    localStorage['membros'] = JSON.stringify(membros);
+    localStorage["membros"] = JSON.stringify(membros);
   }
 
   buscarMembroPorId(id: number): Membro {
@@ -35,14 +34,14 @@ export class MembroService {
       }
     });
     // tslint:disable-next-line: no-string-literal
-    localStorage['membros'] = JSON.stringify(membros);
+    localStorage["membros"] = JSON.stringify(membros);
   }
 
   removerMembro(id: number): void {
     let membros: Membro[] = this.listarMembros();
     membros = membros.filter(membro => membro.id !== id);
     // tslint:disable-next-line: no-string-literal
-    localStorage['membros'] = JSON.stringify(membros);
+    localStorage["membros"] = JSON.stringify(membros);
   }
 
   alterarStatusMembro(id: number): void {
@@ -53,7 +52,6 @@ export class MembroService {
       }
     });
     // tslint:disable-next-line: no-string-literal
-    localStorage['membros'] = JSON.stringify(membros);
+    localStorage["membros"] = JSON.stringify(membros);
   }
-
 }
